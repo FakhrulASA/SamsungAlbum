@@ -1,6 +1,6 @@
 package com.fakhrulasa.samsungalbum.data.model.response.photo
 
-data class PhotosResponseNetworkItem(
+data class Album(
     val albumId: Int,
     val id: Int,
     val thumbnailUrl: String,

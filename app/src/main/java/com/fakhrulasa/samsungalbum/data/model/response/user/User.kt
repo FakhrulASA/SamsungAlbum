@@ -1,6 +1,6 @@
 package com.fakhrulasa.samsungalbum.data.model.response.user
 
-data class UserResponseNetworkItem(
+data class User(
     val address: Address,
     val company: Company,
     val email: String,

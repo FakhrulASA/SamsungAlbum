@@ -4,9 +4,9 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.fakhrulasa.samsungalbum.data.model.response.album.AlbumResponseNetworkItem
-import com.fakhrulasa.samsungalbum.data.model.response.photo.PhotosResponseNetworkItem
-import com.fakhrulasa.samsungalbum.data.model.response.user.UserResponseNetworkItem
+import com.fakhrulasa.samsungalbum.data.model.response.album.Photo
+import com.fakhrulasa.samsungalbum.data.model.response.photo.Album
+import com.fakhrulasa.samsungalbum.data.model.response.user.User
 import com.fakhrulasa.samsungalbum.domain.repository.AlbumRepository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -22,13 +22,13 @@ class DataFetchService : Service() {
     @Inject
     lateinit var albumRepository: AlbumRepository
 
-    suspend fun fetchPhotos(): List<PhotosResponseNetworkItem> =
+    suspend fun fetchPhotos(): List<Album> =
         albumRepository.fetchPhotosDataFromNetwork()
 
-    suspend fun fetchAlbums(): List<AlbumResponseNetworkItem> =
+    suspend fun fetchAlbums(): List<Photo> =
         albumRepository.fetchAlbumDataFromNetwork()
 
-    suspend fun fetchUsers(): List<UserResponseNetworkItem> =
+    suspend fun fetchUsers(): List<User> =
         albumRepository.fetchUserDataFromNetwork()
 
     private val binder = LocalBinder()

@@ -11,12 +11,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.fakhrulasa.samsungalbum.core.service.DataFetchService
 import com.fakhrulasa.samsungalbum.ui.theme.SamsungAlbumTheme
 import com.fakhrulasa.samsungalbum.view.feature.album.AlbumScreen
@@ -26,6 +22,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     val viewModel: AlbumViewModel by viewModels()
+    private var photoService: DataFetchService? = null
+    private var isBound = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,8 +36,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-    private var photoService: DataFetchService? = null
-    private var isBound = false
+
     override fun onStart() {
         super.onStart()
         val intent = Intent(this, DataFetchService::class.java)
@@ -58,9 +56,11 @@ class MainActivity : ComponentActivity() {
             isBound = false
         }
     }
+
     override fun onStop() {
         super.onStop()
         if (isBound) {
+            //it will prevent memory licking
             unbindService(serviceConnection)
             isBound = false
         }

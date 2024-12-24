@@ -1,4 +1,6 @@
 package com.fakhrulasa.samsungalbum.view.viewmodel
 
-class AlbumViewModel {
+import androidx.lifecycle.ViewModel
+
+class AlbumViewModel : ViewModel(){
 }

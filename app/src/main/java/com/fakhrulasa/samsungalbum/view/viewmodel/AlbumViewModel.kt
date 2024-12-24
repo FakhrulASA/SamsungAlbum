@@ -36,6 +36,8 @@ class AlbumViewModel @Inject constructor() : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             service.let { service ->
                 _albumFlow.value=service.fetchAlbums()
+                _usersFlow.value=service.fetchUsers()
+                _photosFlow.value=service.fetchPhotos()
             }
         }
     }

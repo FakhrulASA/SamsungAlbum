@@ -1,15 +1,19 @@
 package com.fakhrulasa.samsungalbum.core.network
 
-import com.fakhrulasa.samsungalbum.data.model.response.AlbumResponse
+import com.fakhrulasa.samsungalbum.data.model.response.album.AlbumResponseNetwork
+import com.fakhrulasa.samsungalbum.data.model.response.photo.PhotosResponseNetwork
+import com.fakhrulasa.samsungalbum.data.model.response.user.UserResponseNetwork
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("endpoint")
-    suspend fun getData(
-        @Query("param1") param1: String,
-        @Query("param2") param2: Int
-    ): Response<List<AlbumResponse>>
+    @GET("photos")
+    suspend fun getPhoto(): Response<PhotosResponseNetwork>
+
+    @GET("users")
+    suspend fun getUser(): Response<UserResponseNetwork>
+
+    @GET("albums")
+    suspend fun getAlbum(): Response<AlbumResponseNetwork>
 }

@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SamsungAlbumTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AlbumScreen()
+                    AlbumScreen(innerPadding)
                 }
             }
         }

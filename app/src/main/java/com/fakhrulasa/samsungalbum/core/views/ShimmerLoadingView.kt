@@ -11,6 +11,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -60,8 +61,8 @@ fun ShimmerPlaceholder(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ContentWithShimmerLoading() {
-    Column(modifier = Modifier.fillMaxSize()) {
+fun ContentWithShimmerLoading(safePadding:PaddingValues) {
+    Column(modifier = Modifier.fillMaxSize().padding(safePadding).background(Color.Black)) {
         // Shimmer Placeholder
         ShimmerPlaceholder(modifier = Modifier.padding(16.dp))
         ShimmerPlaceholder(modifier = Modifier.padding(16.dp))

@@ -41,7 +41,7 @@ fun ShimmerPlaceholder(modifier: Modifier = Modifier) {
         animationSpec = infiniteRepeatable(
             animation = tween(durationMillis = 800, easing = FastOutSlowInEasing),
             repeatMode = RepeatMode.Restart
-        )
+        ), label = ""
     )
 
     // Define a LinearGradient for shimmer effect
@@ -54,7 +54,7 @@ fun ShimmerPlaceholder(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .height(150.dp)
             .background(shimmerBrush) // Apply shimmer effect as background
     )
 }

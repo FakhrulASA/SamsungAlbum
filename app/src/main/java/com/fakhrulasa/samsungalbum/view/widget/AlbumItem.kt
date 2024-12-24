@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,11 +25,15 @@ import com.fakhrulasa.samsungalbum.view.uidata.AlbumUiModel
 
 @Composable
 fun AlbumItemWidget(uiModel: AlbumUiModel){
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(4.dp).padding(4.dp).background(Color.LightGray)) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 8.dp, vertical = 4.dp)
+        .background(Color.LightGray)) {
         ComposeImageView(imageUrl = uiModel.thumbNail, h = 150, w = 150 )
-        Column {
+        Column(modifier = Modifier.padding(end = 8.dp)) {
             Text(text = uiModel.albumName.uppercase(), style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.W700, color = Color.Black))
             Text(text = uiModel.photoTitle, style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.W500, color = Color.Black))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(text = uiModel.userName, style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.W300, color = Color.Black))
         }
     }

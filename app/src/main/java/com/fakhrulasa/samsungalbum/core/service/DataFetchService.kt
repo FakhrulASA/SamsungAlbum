@@ -4,10 +4,13 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
+import com.fakhrulasa.samsungalbum.core.base.Resource
 import com.fakhrulasa.samsungalbum.data.model.response.album.Photo
 import com.fakhrulasa.samsungalbum.data.model.response.photo.Album
 import com.fakhrulasa.samsungalbum.data.model.response.user.User
-import com.fakhrulasa.samsungalbum.domain.repository.AlbumRepository
+import com.fakhrulasa.samsungalbum.domain.usecase.FetchAlbumUseCase
+import com.fakhrulasa.samsungalbum.domain.usecase.FetchPhotosUseCase
+import com.fakhrulasa.samsungalbum.domain.usecase.FetchUserUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,21 +18,29 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class DataFetchService : Service() {
+    @Inject
+    lateinit var fetchUserUseCase: FetchUserUseCase
 
+    @Inject
+    lateinit var fetchAlbumUseCase: FetchAlbumUseCase
+
+    @Inject
+    lateinit var fetchPhotosUseCase: FetchPhotosUseCase
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    @Inject
-    lateinit var albumRepository: AlbumRepository
+    suspend fun fetchPhotos(): Resource<List<Album>> {
+        return fetchAlbumUseCase.execute()
+    }
 
-    suspend fun fetchPhotos(): List<Album> =
-        albumRepository.fetchPhotosDataFromNetwork()
 
-    suspend fun fetchAlbums(): List<Photo> =
-        albumRepository.fetchAlbumDataFromNetwork()
+    suspend fun fetchAlbums(): Resource<List<Photo>> {
+        return fetchPhotosUseCase.execute()
+    }
 
-    suspend fun fetchUsers(): List<User> =
-        albumRepository.fetchUserDataFromNetwork()
+    suspend fun fetchUsers(): Resource<List<User>> {
+        return fetchUserUseCase.execute()
+    }
 
     private val binder = LocalBinder()
 

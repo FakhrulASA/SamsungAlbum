@@ -1,3 +1,7 @@
 package com.fakhrulasa.samsungalbum.data.model.response.photo
 
-class PhotosResponseNetwork : ArrayList<PhotosResponseNetworkItem>()
+import com.fakhrulasa.samsungalbum.data.model.response.album.AlbumResponseNetworkItem
+
+data class PhotosResponseNetwork(
+    val items : List<PhotosResponseNetworkItem>
+)

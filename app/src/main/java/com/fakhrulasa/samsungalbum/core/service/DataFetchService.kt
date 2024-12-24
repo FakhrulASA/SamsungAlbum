@@ -15,8 +15,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class DataFetchService : Service() {
 
-    @Inject
-    lateinit var sharedViewModel: AlbumViewModel
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
@@ -34,10 +32,6 @@ class DataFetchService : Service() {
             val users = apiService.getUser()
             val albums = apiService.getAlbum()
 
-            // Update the Flow data in the ViewModel
-            sharedViewModel.setPhotos(photos)
-            sharedViewModel.setAlbum(albums)
-            sharedViewModel.setUser(users)
         } catch (e: Exception) {
             e.printStackTrace()
         }

@@ -1,4 +1,9 @@
 package com.fakhrulasa.samsungalbum.view.feature.album
 
-class AlbumScreen {
+import androidx.compose.runtime.Composable
+import com.fakhrulasa.samsungalbum.core.views.ContentWithShimmerLoading
+
+@Composable
+fun AlbumScreen(){
+    ContentWithShimmerLoading()
 }

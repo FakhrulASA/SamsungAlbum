@@ -9,6 +9,7 @@
 - **SOLID Principle**
 - **Coroutines and reactive programming**
 - **Test Coverage of 100% repositories, models and UI**
+- **Shimmer Loading for animation**
 
 ## Layered Architecture
 

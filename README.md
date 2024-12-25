@@ -17,3 +17,4 @@
 3. **Domain**: Contains business logic and acts as an intermediary between the data and UI layers.
 4. **View**: The presentation layer, using Jetpack Compose for UI and ViewModel for state management.
 5. **DI**: Configures Dependency Injection using Hilt.
+6. **Test**: Contains all the tests and unit testing for the application. 

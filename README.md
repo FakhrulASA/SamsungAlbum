@@ -1,4 +1,4 @@
-This Android app displays a list of photos fetched from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/). 
+# This Android app displays a list of photos fetched from the [JSONPlaceholder API](https://jsonplaceholder.typicode.com/). 
 
 This project covers
 

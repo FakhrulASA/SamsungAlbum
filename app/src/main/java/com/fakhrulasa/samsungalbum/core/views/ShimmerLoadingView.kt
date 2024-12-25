@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ShimmerPlaceholder(modifier: Modifier = Modifier) {
     // Create shimmer effect using a LinearGradient
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition(label = "")
 
     // Define an animated offset for the shimmer movement
     val shimmerOffset by transition.animateFloat(

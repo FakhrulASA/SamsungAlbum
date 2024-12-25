@@ -27,8 +27,6 @@ class DataFetchService : Service() {
     @Inject
     lateinit var fetchPhotosUseCase: FetchPhotosUseCase
 
-    private val coroutineScope = CoroutineScope(Dispatchers.IO)
-
     suspend fun fetchPhotos(): Resource<List<Album>> {
         return fetchAlbumUseCase.execute()
     }

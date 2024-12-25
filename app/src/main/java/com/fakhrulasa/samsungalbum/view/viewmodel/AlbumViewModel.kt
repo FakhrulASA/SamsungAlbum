@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AlbumViewModel @Inject constructor() : ViewModel() {
+open class AlbumViewModel @Inject constructor() : ViewModel() {
     private val _photosFlow = MutableStateFlow<List<Album>>(listOf())
     val photosFlow: StateFlow<List<Album>> = _photosFlow
 
@@ -30,13 +30,13 @@ class AlbumViewModel @Inject constructor() : ViewModel() {
     val albumFlow: StateFlow<List<Photo>> = _albumFlow
 
     private val _uiData = MutableStateFlow<List<AlbumUiModel>>(listOf())
-    val uiData: StateFlow<List<AlbumUiModel>> = _uiData
+    open val uiData: StateFlow<List<AlbumUiModel>> = _uiData
 
-    private val _isLoading = MutableStateFlow<Boolean>(false)
-    val isLoading: StateFlow<Boolean> = _isLoading
+    private val _isLoading = MutableStateFlow(false)
+    open val isLoading: StateFlow<Boolean> = _isLoading
 
-    private val _isError = MutableStateFlow<String>("")
-    val isError: StateFlow<String> = _isError
+    private val _isError = MutableStateFlow("")
+    open val isError: StateFlow<String> = _isError
 
     // Function to update photos
     fun fetchData(service: DataFetchService) {

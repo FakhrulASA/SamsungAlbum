@@ -12,8 +12,6 @@ import com.fakhrulasa.samsungalbum.domain.usecase.FetchAlbumUseCase
 import com.fakhrulasa.samsungalbum.domain.usecase.FetchPhotosUseCase
 import com.fakhrulasa.samsungalbum.domain.usecase.FetchUserUseCase
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @AndroidEntryPoint

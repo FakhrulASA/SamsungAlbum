@@ -7,6 +7,5 @@ import com.fakhrulasa.samsungalbum.data.model.response.user.User
 interface AlbumRepository {
     suspend fun fetchUserDataFromNetwork(): List<User>
     suspend fun fetchAlbumDataFromNetwork(): List<Photo>
-
     suspend fun fetchPhotosDataFromNetwork(): List<Album>
 }

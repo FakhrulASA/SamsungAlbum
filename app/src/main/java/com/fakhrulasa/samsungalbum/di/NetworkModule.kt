@@ -18,6 +18,7 @@ object NetworkModule {
 
 
     @Provides
+    @Singleton
     fun provideAlbumRepository(apiService: ApiService): AlbumRepository {
         return AlbumRepositoryImpl(apiService)
     }

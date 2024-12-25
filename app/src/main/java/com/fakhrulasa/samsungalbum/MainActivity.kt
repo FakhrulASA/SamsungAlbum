@@ -11,8 +11,15 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
 import com.fakhrulasa.samsungalbum.core.service.DataFetchService
 import com.fakhrulasa.samsungalbum.ui.theme.SamsungAlbumTheme
 import com.fakhrulasa.samsungalbum.view.feature.album.AlbumScreen
@@ -25,12 +32,22 @@ class MainActivity : ComponentActivity() {
     private var photoService: DataFetchService? = null
     private var isBound = false
 
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             SamsungAlbumTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = {
+                        TopAppBar(
+                            title = {
+                                Text(text = "Samsung Album", style = TextStyle(fontSize = 26.sp))
+                            }
+                        )
+                    }
+                ) { innerPadding ->
                     AlbumScreen(innerPadding)
                 }
             }

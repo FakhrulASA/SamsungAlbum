@@ -24,27 +24,21 @@ class FetchAlbumUseCaseTest {
 
     @Test
     fun `execute should return success when repository fetches albums successfully`() = runTest {
-        // Arrange
         val mockAlbums = mockAlbums
         coEvery { mockAlbumRepository.fetchPhotosDataFromNetwork() } returns mockAlbums
 
-        // Act
         val result = fetchAlbumUseCase.execute()
 
-        // Assert
         assertEquals(Resource.Success(mockAlbums), result)
     }
 
     @Test
     fun `execute should return error when repository throws an exception`() = runTest {
-        // Arrange
         val exceptionMessage = "Network error"
         coEvery { mockAlbumRepository.fetchPhotosDataFromNetwork() } throws RuntimeException(exceptionMessage)
 
-        // Act
         val result = fetchAlbumUseCase.execute()
 
-        // Assert
         assertEquals(Resource.Error("Error occurred: $exceptionMessage"), result)
     }
 }

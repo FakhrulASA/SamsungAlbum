@@ -23,7 +23,6 @@ class AlbumScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
-    // Test for loading state
     @Test
     fun albumScreen_loadingState_displaysShimmer() {
         // Create a mock view model
@@ -41,11 +40,9 @@ class AlbumScreenTest {
             AlbumScreen(safePadding = PaddingValues(), viewModel = mockViewModel)
         }
 
-        // Assert that shimmer loading is shown
         composeTestRule.onNodeWithTag("ShimmerLoading").assertIsDisplayed()
     }
 
-    // Test for error state
     @Test
     fun albumScreen_errorState_displaysToast() {
         val mockViewModel = object : AlbumViewModel() {
@@ -62,11 +59,9 @@ class AlbumScreenTest {
             AlbumScreen(safePadding = PaddingValues(), viewModel = mockViewModel)
         }
 
-        // Assert that the error state is shown (e.g., a toast or a UI component)
         composeTestRule.onNodeWithTag("ErrorState").assertIsDisplayed()  // Assuming you have a UI for the error state
     }
 
-    // Test for success state with actual data
     @Test
     fun albumScreen_successState_displaysAlbums() {
         val mockAlbums = listOf(

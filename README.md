@@ -19,3 +19,14 @@
 4. **View**: The presentation layer, using Jetpack Compose for UI and ViewModel for state management.
 5. **DI**: Configures Dependency Injection using Hilt.
 6. **Test**: Contains all the tests and unit testing for the application. 
+
+## Screenshots
+
+### Home Screen  
+![Loaded State]([screenshots/home_screen.png](https://github.com/FakhrulASA/SamsungAlbum/blob/master/screenshots/Screenshot_20241225_223839.png))  
+
+### Album Screen  
+![Album Screen](screenshots/album_screen.png)  
+
+### Photo Detail Screen  
+![Photo Detail Screen](screenshots/photo_detail_screen.png)

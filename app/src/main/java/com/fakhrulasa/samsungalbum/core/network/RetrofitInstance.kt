@@ -6,7 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+    // Fetching base url from build config
+    val baseUrl = com.fakhrulasa.samsungalbum.BuildConfig.API_BASE_URL
 
     // Create a logging interceptor
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
@@ -21,7 +22,7 @@ object RetrofitInstance {
     // Initialize Retrofit with the OkHttpClient
     val apiService: ApiService by lazy {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()

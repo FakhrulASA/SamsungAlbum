@@ -12,14 +12,16 @@ android {
     defaultConfig {
         applicationId = "com.fakhrulasa.samsungalbum"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildFeatures.buildConfig =true
+        buildConfigField("String", "API_BASE_URL", "\"${property("API_BASE_URL")}\"")
     }
 
     buildTypes {

@@ -6,7 +6,7 @@
 - **Data fetching using background service**
 - **Dependency injection using Hilt**
 - **Jetpack compose**
-- **SOLID Principle**
+- **SOLID Principle and OOP Principle**
 - **Coroutines and reactive programming**
 - **Test Coverage of 100% repositories, models and UI**
 - **Shimmer Loading for animation**

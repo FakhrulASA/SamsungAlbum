@@ -22,11 +22,8 @@
 
 ## Screenshots
 
-### Home Screen  
-![Loaded State]([screenshots/home_screen.png](https://github.com/FakhrulASA/SamsungAlbum/blob/master/screenshots/Screenshot_20241225_223839.png))  
-
-### Album Screen  
-![Album Screen](screenshots/album_screen.png)  
-
-### Photo Detail Screen  
-![Photo Detail Screen](screenshots/photo_detail_screen.png)
+<div style="display: flex; justify-content: space-between;">
+  <img src="screenshots/Screenshot_20241225_223921.png" alt="Album Screen" width="200">
+  <img src="screenshots/Screenshot_20241225_223839.png" alt="Home Screen" width="200">
+  <img src="screenshots/Screenshot_20241225_223933.png" alt="Photo Detail Screen" width="200">
+</div>
